@@ -9,6 +9,10 @@ import {
 } from "../components";
 import { useGlobalOptions, useNextRoute } from "../hooks";
 import { InputRadio, SectionStyled } from "../styled-components";
+import ProImage from "../assets/icon-pro.svg"
+import ArcadeImage from "../assets/icon-arcade.svg"
+import AdvancedImage from "../assets/icon-advanced.svg"
+
 
 export const SelectPlan = () => {
   
@@ -72,7 +76,7 @@ export const SelectPlan = () => {
         <SectionStyled>
           <Card
             title="Arcade"
-            img="/src/assets/icon-arcade.svg"
+            img={ArcadeImage}
             selected={isSelected.arcade}
           >
             <p>{arcade_price}</p>
@@ -96,7 +100,7 @@ export const SelectPlan = () => {
           </Card>
           <Card
             title="Advanced"
-            img="/src/assets/icon-advanced.svg"
+            img={AdvancedImage}
             selected={isSelected.advanced}
           >
             <p>{advanced_price}</p>
@@ -120,7 +124,7 @@ export const SelectPlan = () => {
           </Card>
           <Card
             title="Pro"
-            img="/src/assets/icon-pro.svg"
+            img={ProImage}
             selected={isSelected.pro}
           >
             <p>{pro_price}</p>
