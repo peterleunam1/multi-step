@@ -3,7 +3,7 @@ import {
   OptionsContextProps,
   OptionsContextProviderProps,
 } from "@/interfaces";
-import { PlanProps } from "../interfaces/context/OptionsContext";
+import { PlanProps } from "../interfaces/context/OptionsContext.model";
 
 const ContextOptions = React.createContext<OptionsContextProps>({
   modality: '',

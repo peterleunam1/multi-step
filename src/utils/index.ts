@@ -1,4 +1,4 @@
-export * from './getFinalPrice';
+export * from './getFinalPrice.util';
 export * from './index';
-export * from './isActive';
-export * from './toShortWord';
+export * from './isActive.util';
+export * from './toShortWord.util';

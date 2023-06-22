@@ -1,4 +1,4 @@
-import { PricesModel } from "@/interfaces/constants/prices";
+import { PricesModel } from "@/interfaces/constants/prices.model";
 
 export const prices: PricesModel = {
   yearly: {

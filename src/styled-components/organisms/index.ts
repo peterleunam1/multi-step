@@ -1,3 +1,3 @@
-export * from './mainComponent';
-export * from './section-select';
-export * from './sidebar';
+export * from './mainComponent.styled';
+export * from './section-select.styled';
+export * from './sidebar.styled';

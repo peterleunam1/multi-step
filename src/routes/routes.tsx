@@ -3,7 +3,7 @@ import AddNs from "../pages/add-ns";
 import { Home } from "../pages/home";
 import SelectPlan from "../pages/select-plan";
 import Summary from "../pages/summary";
-import { routes } from "@/constants/routes";
+import { routes } from "@/constants/routes.constant";
 import { UserGuard } from "@/guards";
 
 export const RoutesComponent = () => {

@@ -1,6 +1,6 @@
 import { SelectedServiceModel } from "@/interfaces";
 import { useEffect, useState } from "react";
-import { prices } from "@/constants/prices";
+import { prices } from "@/constants/prices.constant";
 
 export default function useChosenService(modality: string) {
   const [isSelected, setIsSelected] = useState<SelectedServiceModel>({
