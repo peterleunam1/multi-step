@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const CardStyled = styled.article<{ select: boolean }>`
   width: calc(30% - 10px);
   height: 22vh;
-  border-radius: 5px;
+  border-radius: .3125rem;
   position: relative;
-  border: 1px solid
+  border: .0625rem solid
     ${({ select }) => (select ? "hsl(243, 100%, 62%)" : "hsl(229, 24%, 87%)")};
   margin: 0;
   padding: 0;
@@ -13,13 +13,13 @@ export const CardStyled = styled.article<{ select: boolean }>`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding: 0px 0px 10px 10px;
+  padding: 0px 0px .625rem .625rem;
   cursor: pointer;
   background-color: ${({ select }) =>
     select ? "hsl(217, 100%, 97%)" : "transparent"};
 
   &:hover {
-    border: 1px solid hsl(213, 96%, 18%);
+    border: .0625rem solid hsl(213, 96%, 18%);
   }
 
   span {
@@ -34,7 +34,7 @@ export const CardStyled = styled.article<{ select: boolean }>`
       margin: 0;
       color: hsl(229, 8%, 60%);
       font-size: 0.8rem;
-      margin: 5px 0px;
+      margin: .3125rem 0px;
     }
   }
 `;

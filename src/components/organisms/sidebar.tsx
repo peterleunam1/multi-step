@@ -1,7 +1,8 @@
-import { isActive, options } from "../../helpers";
-import { SidebarProps } from "../../interfaces";
-import { Aside, OptionsStyled } from "../../styled-components";
-import { Option } from "../../components";
+import { options } from "@/constants";
+import { isActive } from "@/utils";
+import { SidebarProps } from "@/interfaces";
+import { Aside, OptionsStyled } from "@/styled-components";
+import { Option } from "@/components";
 
 const Sidebar = ({ number_page }: SidebarProps) => {
   return (

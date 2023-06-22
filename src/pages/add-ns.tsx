@@ -1,40 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AddOnsCrad,
   Alert,
   LayoutForm,
   MainComponent,
   Sidebar,
-} from "../components";
-import { dataOptions } from "../helpers";
-import { useGlobalOptions, useNextRoute } from "../hooks";
-import { AddOnsProps } from "../interfaces";
+} from "@/components";
+import { dataOptions } from "@/constants";
+import { useAddNs, useGlobalOptions, useNextRoute } from "@/hooks";
+import { modalitiesTexts } from "@/constants";
 
 const AddNs = () => {
-  const { mode } = useGlobalOptions();
+  const { modality } = useGlobalOptions();
   const { onPushRoute } = useNextRoute("/summary");
-
-  const [checked, setChecked] = useState<Array<AddOnsProps>>([]);
+  const { checked, addItem } = useAddNs();
   const [alert, setAlert] = useState(false);
-
-  useEffect(() => {
-    let data = localStorage.getItem("list") || "[]";
-    if (!data) {
-      setChecked(JSON.parse(data));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(checked));
-  }, [checked]);
-
-  const addItem = (item: string[]) => {
-    if (!checked.find((t: AddOnsProps) => t.title === item[0])) {
-      setChecked([...checked, { title: item[0], price: item[1] }]);
-    } else {
-      setChecked(checked.filter((i: AddOnsProps) => i.title !== item[0]));
-    }
-  };
 
   const handleNext = () => {
     if (checked.length > 0) {
@@ -61,11 +41,15 @@ const AddNs = () => {
             <AddOnsCrad
               {...element}
               key={index++}
-              price={mode === "yearly" ? price.year : price.month}
+              price={
+                modality === modalitiesTexts.yearly ? price.year : price.month
+              }
               onClick={() =>
                 addItem([
                   element.title,
-                  mode === "yearly" ? price.year : price.month,
+                  modality === modalitiesTexts.yearly
+                    ? price.year
+                    : price.month,
                 ])
               }
             />

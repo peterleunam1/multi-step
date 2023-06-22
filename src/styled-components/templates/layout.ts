@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Layout = styled.main`
   width: 100%;
   height: 100vh;
+  max-width: 90rem;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,8 +14,8 @@ export const Layout = styled.main`
     width: 58%;
     height: 65vh;
     background-color: hsl(231, 100%, 99%);
-    border-radius: 5px;
-    padding: 12px;
+    border-radius: .3125rem;
+    padding: .75rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

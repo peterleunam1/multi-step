@@ -19,11 +19,11 @@ export const Text = styled.p<{ decoration?: string }>`
   font-weight: lighter;
   text-decoration: ${(props) => props.decoration || "none"};
   cursor: pointer;
-  font-size: 14px;
+  font-size: .875rem;
 `;
 
 export const Th = styled.th<{ text_align?: string }>`
-  padding: 20px;
+  padding: 1.25rem;
   text-align: ${(props) => props.text_align || "left"};
   width: 100%;
   strong {
@@ -35,7 +35,7 @@ export const Th = styled.th<{ text_align?: string }>`
 `;
 
 export const Td = styled.td<{ text_align?: string }>`
-  padding: 8px 20px 8px 20px;
+  padding: .5rem 1.25rem .5rem 1.25rem;
   text-align: ${(props) => props.text_align || "left"};
   width: 100%;
   strong {
@@ -43,7 +43,7 @@ export const Td = styled.td<{ text_align?: string }>`
     padding: 0;
     color: hsl(213, 96%, 18%);
     font-weight: 500;
-    font-size: 13px;
+    font-size: .8125rem;
   }
 `;
 

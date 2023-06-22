@@ -1,6 +1,6 @@
-import { OptionStyled } from "../../styled-components";
-import { Indicator } from "../../components";
-import { OptionProps } from "../../interfaces";
+import { OptionStyled } from "@/styled-components";
+import { Indicator } from "@/components";
+import { OptionProps } from "@/interfaces";
 
 export const Option = ({ description, step, isActive }: OptionProps) => {
   return (

@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const Regular = styled.button<{ width: string }>`
   width: ${(props) => props.width};
-  height: 38px;
+  height: 2.375rem;
   background-color: hsl(213, 96%, 18%);
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: .3125rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
   &:hover {
@@ -16,14 +16,14 @@ export const Regular = styled.button<{ width: string }>`
 `;
 export const Outline = styled.button<{ width: string }>`
   width: ${(props) => props.width};
-  height: 38px;
+  height: 2.375rem;
   background-color: #fff;
   cursor: pointer;
   transition: font-size 0.3s ease;
   border: none;
   &:hover {
     color: hsl(213, 96%, 18%);
-    font-size: 15px;
+    font-size: .9375rem;
     font-weight: bolder;
   }
 `;

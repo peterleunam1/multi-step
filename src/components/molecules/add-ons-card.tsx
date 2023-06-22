@@ -1,11 +1,12 @@
-import { useGlobalOptions } from "../../hooks";
-import { AddOnsCardProps } from "../../interfaces";
+import { useGlobalOptions } from "@/hooks";
+import { AddOnsCardProps } from "@/interfaces";
+import { toShortWord } from "@/utils";
 import {
   ContainerAddOns,
   Checkbox,
   TextContainer,
   Price,
-} from "../../styled-components";
+} from "@/styled-components";
 
 const AddOnsCard = ({
   title,
@@ -13,7 +14,7 @@ const AddOnsCard = ({
   price,
   onClick,
 }: AddOnsCardProps) => {
-  const { mode } = useGlobalOptions();
+  const { modality } = useGlobalOptions();
 
   return (
     <ContainerAddOns>
@@ -25,7 +26,7 @@ const AddOnsCard = ({
         </TextContainer>
       </span>
       <Price>
-        ${price}/{mode === "yearly" ? "yr" : "mo"}
+        ${price}/ {toShortWord(modality)}
       </Price>
     </ContainerAddOns>
   );

@@ -1,11 +1,11 @@
-import { Button } from "../../components";
-import { MainComponentProps } from "../../interfaces";
+import { Button } from "@/components";
+import { MainComponentProps } from "@/interfaces";
 import {
   Container,
   Header,
   Information,
   BarButton,
-} from "../../styled-components";
+} from "@/styled-components";
 
 const MainComponent = ({
   title,
@@ -15,7 +15,7 @@ const MainComponent = ({
   back_off,
   onClick,
   justify,
-  text_regular="Next",
+  text_regular = "Next",
   visilityButoons = true,
 }: MainComponentProps) => {
   return (
@@ -29,7 +29,12 @@ const MainComponent = ({
         <>
           {visilityButoons && (
             <BarButton justify="flex-end">
-              <Button type="regular" width="130px" onClick={onClick} text={text_regular} />
+              <Button
+                type="regular"
+                width="130px"
+                onClick={onClick}
+                text={text_regular}
+              />
             </BarButton>
           )}
         </>
@@ -38,7 +43,12 @@ const MainComponent = ({
           {visilityButoons && (
             <BarButton justify="space-between">
               <Button type="outline" width="130px" path={back_path} />
-              <Button type="regular" width="130px" onClick={onClick} text={text_regular}/>
+              <Button
+                type="regular"
+                width="130px"
+                onClick={onClick}
+                text={text_regular}
+              />
             </BarButton>
           )}
         </>

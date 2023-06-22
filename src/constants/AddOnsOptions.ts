@@ -1,4 +1,6 @@
-export const dataOptions = [
+import { AddOnsModel } from "@/interfaces";
+
+export const dataOptions: AddOnsModel[] = [
   {
     title: "Online Service",
     description: "Access to multiplayer games.",

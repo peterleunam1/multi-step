@@ -1,10 +1,12 @@
-import { OptionsContextProvider } from "./context";
+import { OptionsContextProvider, UserContextProvider } from "./context";
 import RoutesComponent from "./routes/routes";
 
 function App() {
   return (
     <OptionsContextProvider>
-      <RoutesComponent />
+      <UserContextProvider>
+        <RoutesComponent />
+      </UserContextProvider>
     </OptionsContextProvider>
   );
 }

@@ -1,5 +1,5 @@
-import { LayoutProps } from "../../interfaces";
-import { Layout } from "../../styled-components";
+import { LayoutProps } from "@/interfaces";
+import { Layout } from "@/styled-components";
 
 const LayoutForm = ({ children }: LayoutProps) => {
   return (

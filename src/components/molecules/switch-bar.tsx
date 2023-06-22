@@ -1,12 +1,13 @@
-import { Switch } from "../../components";
-import { Bar } from "../../styled-components";
+import { Switch } from "@/components";
+import { Bar } from "@/styled-components";
+import { modalitiesTexts } from "@/constants";
 
 const SwitchBar = () => {
   return (
     <Bar>
-      <span>Monthly</span>
+      <span>{modalitiesTexts.monthly}</span>
       <Switch></Switch>
-      <span>Yearly</span>
+      <span>{modalitiesTexts.yearly}</span>
     </Bar>
   );
 };

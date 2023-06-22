@@ -5,25 +5,19 @@ import {
   MainComponent,
   Sidebar,
   TableSummary,
-} from "../components";
-import { AddOnsProps } from "../interfaces";
-import { Text, ThankContainer, Td, Total } from "../styled-components";
+} from "@/components";
+import { AddOnsProps } from "@/interfaces";
+import { Text, ThankContainer, Td, Total } from "@/styled-components";
+import { useGlobalOptions } from "@/hooks";
+import { toShortWord, getFinalPrice } from "@/utils";
+import { congratulation, modalitiesTexts } from "@/constants";
 import ThankYouuImage from "../assets/icon-thank-you.svg";
-import { useGlobalOptions } from "../hooks";
 
 export const Summary = () => {
   const data = JSON.parse(localStorage.getItem("list") || "");
-  const { mode, information } = useGlobalOptions();
-  const [finish, setFinish] = useState(false);
-
-  let priceFinally: number = 0;
-  if (information?.price) {
-    const infoPrice = information.price.split("/");
-    const priceF = infoPrice[0].split("$");
-    priceFinally = parseInt(priceF[1]);
-  }
-
-  console.log(priceFinally, typeof priceFinally);
+  const { modality, information } = useGlobalOptions();
+  const [finish, setFinish] = useState<boolean>(false);
+  const priceFinally = getFinalPrice(information?.price || "");
   let suma: number = 0;
 
   const handleClick = () => {
@@ -52,9 +46,7 @@ export const Summary = () => {
                     <Text>{title}</Text>
                   </Td>
                   <Td text_align="right">
-                    <strong>{`+${price}/${
-                      mode === "yearly" ? "yr" : "mo"
-                    }`}</strong>
+                    <strong>{`+${price}/${toShortWord(modality)}`}</strong>
                   </Td>
                 </tr>
               );
@@ -62,11 +54,16 @@ export const Summary = () => {
           </TableSummary>
           <Total>
             <Text>
-              Total: {`(per ${mode === "yearly" ? "year" : "month"})`}
+              Total:{" "}
+              {`(per ${
+                modality === modalitiesTexts.yearly
+                  ? modalitiesTexts.year
+                  : modalitiesTexts.month
+              })`}
             </Text>
-            <strong>{`$${suma + priceFinally}/${
-              mode === "yearly" ? "yr" : "mo"
-            }`}</strong>
+            <strong>{`$${suma + priceFinally}/${toShortWord(
+              modality
+            )}`}</strong>
           </Total>
         </MainComponent>
       ) : (
@@ -80,12 +77,8 @@ export const Summary = () => {
             <span>
               <Icon url={ThankYouuImage} alt="Thank you" />
             </span>
-            <h1>Thank you!</h1>
-            <p>
-              Thanks for confirming your subscription! We hope you have fun
-              using our plataform. If you ever need support, please feel free yo
-              email us at support@loremgaming.com
-            </p>
+            <h1>{congratulation.title}</h1>
+            <p>{congratulation.description}</p>
           </ThankContainer>
         </MainComponent>
       )}

@@ -1,7 +1,7 @@
-import { IndicatorProps } from "../../interfaces"
-import { IndicatorStyled } from "../../styled-components"
+import { IndicatorProps } from "@/interfaces"
+import { IndicatorStyled } from "@/styled-components/atoms"
 
-const Indicator = ({value=1, isActive}:IndicatorProps) => {
+const Indicator = ({value = 1, isActive}:IndicatorProps) => {
   return (
     <IndicatorStyled isActive={isActive}>
         {value}

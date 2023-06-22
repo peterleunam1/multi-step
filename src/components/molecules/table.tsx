@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { useGlobalOptions } from "../../hooks";
-import { TableSummaryProps } from "../../interfaces";
-import { Table, Text, Th } from "../../styled-components";
+import { useGlobalOptions } from "@/hooks";
+import { TableSummaryProps } from "@/interfaces";
+import { Table, Text, Th } from "@/styled-components";
+import { modalitiesTexts } from "@/constants";
 
 const TableSummary = ({ children }: TableSummaryProps) => {
-  const { mode, information, setMode } = useGlobalOptions()
+  const { modality, information, setModality } = useGlobalOptions();
+  const { monthly, yearly } = modalitiesTexts;
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setMode("monthly");
+    setModality(monthly);
     navigate("/select-plan");
   };
 
@@ -18,7 +20,7 @@ const TableSummary = ({ children }: TableSummaryProps) => {
         <tr>
           <Th>
             <strong>{`${information?.mode} (${
-              mode === "yearly" ? "yearly" : "monthly"
+              modality === yearly ? yearly : monthly
             })`}</strong>
 
             <Text decoration="underline" onClick={handleClick}>

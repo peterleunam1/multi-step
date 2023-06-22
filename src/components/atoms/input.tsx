@@ -1,5 +1,5 @@
-import { InputProps } from "../../interfaces";
-import { Label, InputStyled } from "../../styled-components";
+import { InputProps } from "@/interfaces";
+import { Label, InputStyled } from "@/styled-components/atoms";
 
 export const Input = ({
   label,
@@ -25,4 +25,5 @@ export const Input = ({
     </Label>
   );
 };
+
 export default Input;

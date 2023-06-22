@@ -1,13 +1,15 @@
-import { useState } from "react";
-import { UserProps } from "../interfaces";
-import { LayoutForm, Sidebar, MainComponent, Input } from "../components";
-import { FormS } from "../styled-components";
-import { useNextRoute } from "../hooks";
+import { useContext, useState } from "react";
+import { UserProps } from "@/interfaces";
+import { LayoutForm, Sidebar, MainComponent, Input } from "@/components";
+import { FormS } from "@/styled-components";
+import { useNextRoute } from "@/hooks";
+import { ContextUser } from "@/context";
 
 export const Home = () => {
   const [user, setuser] = useState({});
-  const [isEmpty, setIsEmpty] = useState(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const { onPushRoute } = useNextRoute("/select-plan");
+  const { setUser } = useContext(ContextUser);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setuser({
       ...user,
@@ -20,14 +22,19 @@ export const Home = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name && email && phone) {
+      setUser({
+        name,
+        email,
+        phone,
+      });
       onPushRoute();
     } else {
       setIsEmpty(true);
     }
   };
 
-  const handleNext = async (e: any) => {
-    await handleSubmit(e);
+  const handleNext = (e: any) => {
+    handleSubmit(e);
   };
 
   return (

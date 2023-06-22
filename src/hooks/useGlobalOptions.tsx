@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { ContextOptions } from "../context";
 
 export default function useGlobalOptions() {
-  const { mode, setMode, setInformation, information } =
+  const { modality, setModality, setInformation, information } =
     useContext(ContextOptions);
   return {
-    mode,
-    setMode,
+    modality,
+    setModality,
     information,
     setInformation,
   };

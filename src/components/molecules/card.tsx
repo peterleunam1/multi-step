@@ -1,6 +1,6 @@
-import { CardProps } from "../../interfaces";
-import { CardStyled } from "../../styled-components";
-import { Icon } from "../../components";
+import { CardProps } from "@/interfaces";
+import { CardStyled } from "@/styled-components";
+import { Icon } from "@/components";
 
 const Card = ({ children, title, img, selected }: CardProps) => {
   return (
@@ -8,7 +8,7 @@ const Card = ({ children, title, img, selected }: CardProps) => {
       <Icon url={img} alt={title}></Icon>
       <span>
         <h4>{title}</h4>
-        <p>{children}</p>
+        <div>{children}</div>
       </span>
     </CardStyled>
   );

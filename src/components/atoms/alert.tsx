@@ -1,8 +1,12 @@
-import { AlertProps } from "../../interfaces";
-import { AlertS } from "../../styled-components";
+import { AlertProps } from "@/interfaces";
+import { AlertStyled } from "@/styled-components/atoms";
 
 const Alert = ({ vibility, text }: AlertProps) => {
-  return <AlertS visibility={vibility}>{text}</AlertS>;
+  return (
+    <AlertStyled visibility={vibility ? "normal" : "hidden"}>
+      {text}
+    </AlertStyled>
+  );
 };
 
 export default Alert;

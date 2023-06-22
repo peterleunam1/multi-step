@@ -8,17 +8,17 @@ export const ThankContainer = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 3.125rem;
   span {
     position: relative;
     width: 22%;
     height: 13.5vh;
   }
   h1 {
-    margin: 20px 0 5px 0;
+    margin: 1.25rem 0 .3125rem 0;
   }
   p {
-    font-size: 15px;
+    font-size: .9375rem;
     color: hsl(231, 11%, 63%);
   }
 `;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Alert,
   Card,
@@ -6,55 +6,32 @@ import {
   MainComponent,
   Sidebar,
   SwitchBar,
-} from "../components";
-import { useGlobalOptions, useNextRoute } from "../hooks";
-import { InputRadio, SectionStyled } from "../styled-components";
-import ProImage from "../assets/icon-pro.svg"
-import ArcadeImage from "../assets/icon-arcade.svg"
-import AdvancedImage from "../assets/icon-advanced.svg"
-
+} from "@/components";
+import { useGlobalOptions, useNextRoute } from "@/hooks";
+import { InputRadio, SectionStyled } from "@/styled-components";
+import ProImage from "../assets/icon-pro.svg";
+import ArcadeImage from "../assets/icon-arcade.svg";
+import AdvancedImage from "../assets/icon-advanced.svg";
+import { useChosenService } from "@/hooks";
 
 export const SelectPlan = () => {
-  
-  const { mode, setInformation } = useGlobalOptions()
-  const {onPushRoute} = useNextRoute("/add-ons")
+  const { modality, setInformation } = useGlobalOptions();
+  const { onPushRoute } = useNextRoute("/add-ons");
   const [alert, setAlert] = useState(false);
-  const [isSelected, setIsSelected] = useState({
-    arcade: false,
-    advanced: false,
-    pro: false,
-  });
+  const { isSelected, setIsSelected, advanced_price, arcade_price, pro_price } =
+    useChosenService(modality);
 
-  let arcade_price: string = "$9/mo";
-  let advanced_price: string = "$12/mo";
-  let pro_price: string = "$15/mo";
-
-  if (mode === "yearly") {
-    arcade_price = "$90/yr";
-    advanced_price = "$120/yr";
-    pro_price = "$150/yr";
-  }
-
-  useEffect(() => {
-    setIsSelected({
-      arcade: false,
-      advanced: false,
-      pro: false,
-    });
-  }, [mode]);
-
-  const { advanced, arcade, pro } = isSelected;
   const Verify = (): boolean => {
+    const { advanced, arcade, pro } = isSelected;
     if (advanced || arcade || pro) {
       return true;
     } else {
       return false;
     }
   };
-  const option = Verify();
-
+  
   const handleNext = () => {
-    if (option) {
+    if (Verify()) {
       onPushRoute();
     } else {
       setAlert(true);
@@ -74,13 +51,9 @@ export const SelectPlan = () => {
       >
         <Alert text="You must choose an option." vibility={alert} />
         <SectionStyled>
-          <Card
-            title="Arcade"
-            img={ArcadeImage}
-            selected={isSelected.arcade}
-          >
+          <Card title="Arcade" img={ArcadeImage} selected={isSelected.arcade}>
             <p>{arcade_price}</p>
-            {mode === "yearly" ? <p>2 months free</p> : ""}
+            {modality === "yearly" ? <p>2 months free</p> : ""}
             <InputRadio
               type="radio"
               name="plan"
@@ -104,7 +77,7 @@ export const SelectPlan = () => {
             selected={isSelected.advanced}
           >
             <p>{advanced_price}</p>
-            {mode === "yearly" ? <p>2 months free</p> : ""}
+            {modality === "yearly" ? <p>2 months free</p> : ""}
             <InputRadio
               type="radio"
               name="plan"
@@ -122,13 +95,9 @@ export const SelectPlan = () => {
               }}
             />
           </Card>
-          <Card
-            title="Pro"
-            img={ProImage}
-            selected={isSelected.pro}
-          >
+          <Card title="Pro" img={ProImage} selected={isSelected.pro}>
             <p>{pro_price}</p>
-            {mode === "yearly" ? <p>2 months free</p> : ""}
+            {modality === "yearly" ? <p>2 months free</p> : ""}
             <InputRadio
               type="radio"
               name="plan"

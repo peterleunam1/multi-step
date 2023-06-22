@@ -1,4 +1,6 @@
-export const options = [
+import { OptionsModel } from "@/interfaces";
+
+export const options: OptionsModel[] = [
   {
     description: "Your info",
     step: 1,

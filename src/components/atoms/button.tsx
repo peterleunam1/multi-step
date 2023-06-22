@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { ButtonProps } from "../../interfaces";
-import { Outline, Regular } from "../../styled-components";
+import { ButtonProps } from "@/interfaces";
+import { Outline, Regular } from "@/styled-components/atoms";
 
 const Button: FC<ButtonProps> = ({ width, type, path, onClick, text }) => {
   return (
@@ -11,7 +11,7 @@ const Button: FC<ButtonProps> = ({ width, type, path, onClick, text }) => {
           {text}
         </Regular>
       ) : (
-        <Link to={path || ""}>
+        <Link to={path || ''}>
           <Outline width={width}>Go Back</Outline>
         </Link>
       )}
